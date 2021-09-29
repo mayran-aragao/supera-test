@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "supera-test",
+    "slug": "supera-test",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "supera-test"
+}
