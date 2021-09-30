@@ -1,11 +1,27 @@
 {
-  "expo": {
-    "name": "supera-test",
-    "slug": "supera-test",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "supera-test"
+    "expo": {
+        "name": "supera-test",
+        "slug": "supera-test",
+        "version": "1.0.0",
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "packagerOpts": {
+            "config": "expo/metro-config",
+            "sourceExts": [
+                "expo.ts",
+                "expo.tsx",
+                "expo.js",
+                "expo.jsx",
+                "ts",
+                "tsx",
+                "js",
+                "jsx",
+                "json",
+                "wasm",
+                "svg"
+            ]
+        }
+    },
+    "name": "supera-test"
 }

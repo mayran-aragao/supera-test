@@ -37,7 +37,7 @@ const ShopScreen = ({ navigation }) => {
             <Container>
                 <StatusBar barStyle={Platform.OS == 'ios' ? 'dark-content' : 'dark-content'} animated={true} backgroundColor="#F5F5F5" />
                 <Header>
-                    <Material name="store-outline" size={80} color="#008B8B"></Material>
+                    <Material name="store-outline" size={80} color="#008B8B"/>
                     <Texto>Supera's shop</Texto>
                 </Header>
                 <Div>
