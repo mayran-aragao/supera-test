@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import ProductImages from './ProductImages';
-import CartIcon from '../assets/cart-icon.svg';
 
 const Div = styled.View`
     width: 100%;
     flex-direction: row;
     align-items: center;
     margin-bottom: 15px;
+    padding:10px;
     background-color: #fff;
     border-radius: 15px;
     flex-wrap: wrap;
+    
 `;
 const DivContent = styled.View`
     align-items: flex-start;
@@ -23,8 +25,8 @@ const DivButton = styled.View`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
 `;
 const Texto = styled.Text`
     font-size: 14px;
@@ -53,7 +55,16 @@ const Image = styled.Image`
 export default (props) => {
     return (
 
-        <Div>
+        <Div style={{
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 10,
+            },
+            shadowOpacity: 0.3,
+            shadowRadius: 20,
+            elevation: 15,
+        }}>
             <Image source={ProductImages(props.data.image)} />
             <DivContent>
                 <Texto>{props.data.name}</Texto>
@@ -64,12 +75,14 @@ export default (props) => {
                 <Button
                     title="Adicionar ao carrinho"
                     type="clear"
-                    titleStyle={{color:"#008B8B"}}
+                    titleStyle={{ color: "#008B8B" }}
+                    onPress={props.addAction}
                 />
                 <Button
                     title="Comprar"
                     type="clear"
-                    titleStyle={{color:"#008B8B"}}
+                    titleStyle={{ color: "#008B8B" }}
+                    onPress={props.buyAction}
                 />
             </DivButton>
         </Div>
