@@ -15,9 +15,9 @@ const App = () => {
                 <Stack.Screen name="Entrace" component={EntraceScreen} options={{
                     headerShown: false
                 }}/>
-                {/* <Stack.Screen name="Tab" component={Tabnavigator} options={{
+                <Stack.Screen name="Tab" component={Tabnavigator} options={{
                     headerShown:false
-                }} /> */}
+                }} />
             </Stack.Navigator>
         </NavigationContainer>
     )
