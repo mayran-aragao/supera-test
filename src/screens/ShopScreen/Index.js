@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Button, Overlay } from 'react-native-elements';
 import { StatusBar, FlatList } from 'react-native'
-import CartIcon from '../../assets/cart-icon.svg';
 import products from '../../products.json'
 import ProductList from '../../components/ProductsList'
 import Material from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useStateValue } from '../../contexts/StateContext'
 import SnackBar from 'react-native-snackbar-component'
 import {
     Container,
     Div,
-    Header, Texto
+    Texto
 } from './Style'
 
 
@@ -94,6 +94,7 @@ const ShopScreen = ({ navigation }) => {
         dispatch({ type: 'setProductsList', payload: { product: listProducts } })
         resetSnack()
     }
+
     const goToCart = (product) => {
         let listProducts = [...itensToBuy]
 
@@ -119,13 +120,7 @@ const ShopScreen = ({ navigation }) => {
 
     return (
         <Container>
-            {/* <Header>
-                <Button
-                    type="clear"
-                    titleStyle={{ color: "#008B8B" }}
-                    icon={<CartIcon width={35} height={35} />}
-                />
-            </Header> */}
+            <StatusBar barStyle='dark-content' animated={true} backgroundColor="#f5f5f5" />
             <Div>
                 <Texto>Nossos Produtos</Texto>
                 <Button
@@ -155,25 +150,29 @@ const ShopScreen = ({ navigation }) => {
                 <Button
                     title="Preço"
                     type="clear"
-                    titleStyle={{ color: "#008B8B" }}
+                    titleStyle={{ color: "#008B8B", paddingLeft: 5 }}
+                    icon={<Material name="cash" size={20} color="#008b8b" />}
                     onPress={() => handlePrice("PREÇO")}
                 />
                 <Button
                     title="Popularidade"
                     type="clear"
-                    titleStyle={{ color: "#008B8B" }}
+                    titleStyle={{ color: "#008B8B", paddingLeft: 5 }}
+                    icon={<Material name="account-heart-outline" size={20} color="#008b8b" />}
                     onPress={() => handleScore("POPULAR.")}
                 />
                 <Button
                     title="Ordem Alfabetica"
                     type="clear"
-                    titleStyle={{ color: "#008B8B" }}
+                    titleStyle={{ color: "#008B8B", paddingLeft: 5  }}
+                    icon={<Material name="order-alphabetical-ascending" size={20} color="#008b8b" />}
                     onPress={() => handleOrder("ALFABÉTICA")}
                 />
                 <Button
                     title="Remover Filtro"
                     type="outline"
-                    titleStyle={{ color: "#DC143C" }}
+                    titleStyle={{ color: "#DC143C", paddingLeft: 5 }}
+                    icon={<Icon name="trash-outline" size={20} color="#DC143C" />}
                     buttonStyle={{ borderColor: "#DC143C" }}
                     onPress={() => { setVisible(!visible), setList(products), setFiltro('') }}
                 />

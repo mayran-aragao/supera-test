@@ -9,14 +9,18 @@ export const Header = styled.View`
     width: 100%;
     padding-top: 20px;
     padding-left: 10px;
+    align-items: center;
     justify-content: space-between;
 `;
-
+export const DivLabel = styled.View`
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
 export const TextoHeader = styled.Text`
     font-size: 24px;
-    color: #008B8B	;
+    color: #008B8B;
 `;
-
 export const Div = styled.View`
     max-height:50%;
     border-radius: 15px;
@@ -27,9 +31,9 @@ export const Div = styled.View`
 `;
 export const DivCheckout = styled.View`
     flex:1;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
-    padding:10px;
+    padding:20px;
 `;
 export const Label = styled.Text`
     font-size: 18px;
@@ -39,15 +43,20 @@ export const Label = styled.Text`
 `;
 export const DivValues = styled.View`
     flex-direction: row;
-    width: 20%;
+    max-width: 100%;
     background-color: #fff;
     align-items: flex-end;
     justify-content: space-between;
     border-radius: 5px;
-    elevation: 4;
+    elevation: 5;
 `;
 export const ValueText = styled.Text`
     font-size: 17px;
     font-weight: 800;
     color:#454545;
+`;
+export const DivImage = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 `;

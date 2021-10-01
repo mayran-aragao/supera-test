@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Material from 'react-native-vector-icons/MaterialCommunityIcons';
 import { View } from 'react-native';
 import { Button } from 'react-native-elements';
 import ProductImages from './ProductImages';
@@ -22,11 +23,9 @@ const DivContent = styled.View`
 `;
 const DivButton = styled.View`
     width: 100%;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    /* padding-top: 10px; */
-    /* padding-bottom: 10px; */
+    
 `;
 const Texto = styled.Text`
     font-size: 14px;
@@ -74,14 +73,20 @@ export default (props) => {
             <DivButton>
                 <Button
                     title="Adicionar ao carrinho"
-                    type="clear"
-                    titleStyle={{ color: "#008B8B" }}
+                    titleStyle={{ color: "#fff", paddingLeft:5 }}
+                    type="solid"
+                    containerStyle={{width:"100%", marginTop:10}}
+                    buttonStyle={{backgroundColor:"#008b8b"}}
+                    icon={<Material name="cart-plus" size={20} color="#fff" />}
                     onPress={props.addAction}
                 />
                 <Button
                     title="Comprar"
-                    type="clear"
-                    titleStyle={{ color: "#008B8B" }}
+                    titleStyle={{ color: "#fff",paddingLeft:5 }}
+                    type="outline"
+                    icon={<Material name="cash" size={20} color="#fff" />}
+                    containerStyle={{width:"100%", marginTop:10}}
+                    buttonStyle={{backgroundColor:"#008b8b"}}
                     onPress={props.buyAction}
                 />
             </DivButton>

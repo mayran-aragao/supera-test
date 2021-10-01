@@ -17,5 +17,8 @@ export default (state = initialState , action = {}) => {
             AsyncStorage.setItem('productsList', JSON.stringify(productsList))
             return {...state, productsList:action.payload.product}
         break;
+        case 'delProductsList':
+            return {...state, productsList:[]}
+        break;
     }
 }

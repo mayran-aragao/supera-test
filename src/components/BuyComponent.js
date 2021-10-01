@@ -45,6 +45,7 @@ export default (props) => {
                     type="clear"
                     titleStyle={{ color: "#008B8B" }}
                     icon={<Icon name="trash-outline" size={20} color="#ff0000" />}
+                    onPress={props.delAction}
                 />
         </Div>
 

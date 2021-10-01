@@ -13,7 +13,7 @@ import {
 } from './Style'
 
 
-const ShopScreen = ({ navigation }) => {
+const EntraceScreen = ({ navigation }) => {
     const [name, setName] = useState('')
     const [showAlert, setShowAlert] = useState(false);
     const [error, setError] = useState('');
@@ -36,7 +36,7 @@ const ShopScreen = ({ navigation }) => {
         <ScrollView contentContainerStyle={{ flex: 1 }} scrollEnabled={false} keyboardDismissMode='on-drag' keyboardShouldPersistTaps='handled'>
             <Container>
                 <Header>
-                    <Material name="store-outline" size={80} color="#008B8B"/>
+                    <Material name="store-outline" size={80} color="#008B8B" />
                     <Texto>Supera's shop</Texto>
                 </Header>
                 <Div>
@@ -82,4 +82,4 @@ const ShopScreen = ({ navigation }) => {
     )
 }
 
-export default ShopScreen
+export default EntraceScreen

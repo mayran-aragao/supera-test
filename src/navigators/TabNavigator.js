@@ -1,8 +1,10 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Material from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import ShopScreen from '../screens/ShopScreen/Index'
 import CartScreen from '../screens/CartScreen/Index'
+import ConfigScreen from '../screens/ConfigScreen/Index'
 
 const Tab = createBottomTabNavigator()
 
@@ -22,6 +24,9 @@ const App = () => {
                     if (route.name === 'Cart') {
                         iconName = focused ? "cart" : "cart-outline"
                     }
+                    if (route.name === 'Config') {
+                        iconName = focused ? "account-settings" : "account-settings-outline"
+                    }
                     return <Material name={iconName} size={size} color={color} />;
                 },
                 tabBarActiveTintColor: '#008B8B',
@@ -30,6 +35,7 @@ const App = () => {
         >
             <Tab.Screen name="Shop" component={ShopScreen} />
             <Tab.Screen name="Cart" component={CartScreen} />
+            <Tab.Screen name="Config" component={ConfigScreen} />
         </Tab.Navigator>
     )
 }
