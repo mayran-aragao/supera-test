@@ -14,10 +14,8 @@ export default (state = initialState , action = {}) => {
             return {...state, name:action.payload.name}
         break;
         case 'setProductsList':
-            productsList.push(action.payload.product)
-            console.log("essa é a lista ", productsList )
             AsyncStorage.setItem('productsList', JSON.stringify(productsList))
-            return {...state, productsList}
+            return {...state, productsList:action.payload.product}
         break;
     }
 }

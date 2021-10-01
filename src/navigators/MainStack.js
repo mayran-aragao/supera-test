@@ -6,17 +6,17 @@ import Tabnavigator from './TabNavigator'
 import EntraceScreen from '../screens/EntraceScreen/Index'
 
 const Stack = createNativeStackNavigator()
-
 const App = () => {
 
-    return(
+    return (
         <NavigationContainer>
             <Stack.Navigator>
+                
                 <Stack.Screen name="Entrace" component={EntraceScreen} options={{
                     headerShown: false
-                }}/>
+                }} />
                 <Stack.Screen name="Tab" component={Tabnavigator} options={{
-                    headerShown:false
+                    headerShown: false
                 }} />
             </Stack.Navigator>
         </NavigationContainer>

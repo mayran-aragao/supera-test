@@ -6,6 +6,7 @@ import products from '../../products.json'
 import ProductList from '../../components/ProductsList'
 import Material from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useStateValue } from '../../contexts/StateContext'
+import SnackBar from 'react-native-snackbar-component'
 import {
     Container,
     Div,
@@ -13,13 +14,15 @@ import {
 } from './Style'
 
 
-const ShopScreen = ({navigation}) => {
+const ShopScreen = ({ navigation }) => {
     const [visible, setVisible] = useState(false)
+    const [showSnack, setShowSnack] = useState(false)
     const [list, setList] = useState(products)
     const [bgt, setBgt] = useState(false)
     const [ordem, setOrdem] = useState(false)
     const [filtro, setFiltro] = useState('')
     const [context, dispatch] = useStateValue()
+    const [itensToBuy, setItensToBuy] = useState([])
 
     const handlePrice = (title) => {
         let newList = [...products]
@@ -54,7 +57,7 @@ const ShopScreen = ({navigation}) => {
         setVisible(!visible)
         setOrdem(!ordem)
         setFiltro(title)
-        if (bgt) {
+        if (ordem) {
             newList.sort((a, n) => (a.name > n.name ? 1 : n.name > a.name ? -1 : 0))
         } else {
             newList.sort((a, n) => (a.name > n.name ? -1 : n.name > a.name ? 1 : 0))
@@ -64,17 +67,58 @@ const ShopScreen = ({navigation}) => {
 
     }
 
-    const addToCard = (item) => {
-        console.log(item.name)
+    const resetSnack = () => {
+        setTimeout(()=>setShowSnack(false), 1500);
     }
-    const goToCard = (product) => {
-        dispatch({ type: 'setProductsList', payload: { product: product } })
-        navigation.navigate('Cart',product)
+    
+    const addToCart = (product) => {
+        let listProducts = [...itensToBuy]
+        setShowSnack(true)
+
+        if (listProducts != '') {
+            let item = listProducts.filter(a => a.id == product.id)
+
+            if (item.length > 0){
+                item[0].quantidade = item[0].quantidade + 1
+            } else {
+                product.quantidade = 1
+                listProducts.push(product)
+            }
+            setItensToBuy(listProducts)
+
+        } else {
+            product.quantidade = 1
+            listProducts.push(product)
+            setItensToBuy(listProducts)
+        }
+        dispatch({ type: 'setProductsList', payload: { product: listProducts } })
+        resetSnack()
+    }
+    const goToCart = (product) => {
+        let listProducts = [...itensToBuy]
+
+        if (listProducts != '') {
+            let item = listProducts.filter(a => a.id == product.id)
+
+            if (item.length > 0){
+                item[0].quantidade = item[0].quantidade + 1
+            } else {
+                product.quantidade = 1
+                listProducts.push(product)
+            }
+            setItensToBuy(listProducts)
+
+        } else {
+            product.quantidade = 1
+            listProducts.push(product)
+            setItensToBuy(listProducts)
+        }
+        dispatch({ type: 'setProductsList', payload: { product: listProducts } })
+        navigation.navigate('Cart',listProducts)
     }
 
     return (
         <Container>
-            <StatusBar barStyle='dark-content' animated={true} backgroundColor="#F5F5F5" />
             {/* <Header>
                 <Button
                     type="clear"
@@ -100,8 +144,8 @@ const ShopScreen = ({navigation}) => {
                 renderItem={({ item }) =>
                     <ProductList
                         data={item}
-                        addAction={() => addToCard(item)}
-                        buyAction={() => goToCard(item)}
+                        addAction={() => addToCart(item)}
+                        buyAction={() => goToCart(item)}
 
                     />
                 }
@@ -134,6 +178,7 @@ const ShopScreen = ({navigation}) => {
                     onPress={() => { setVisible(!visible), setList(products), setFiltro('') }}
                 />
             </Overlay>
+            <SnackBar visible={showSnack} textMessage="Adicionado ao carrinho"  />
         </Container>
     )
 }
