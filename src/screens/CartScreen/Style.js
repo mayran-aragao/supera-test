@@ -44,10 +44,11 @@ export const Label = styled.Text`
 export const DivValues = styled.View`
     flex-direction: row;
     max-width: 100%;
-    background-color: #fff;
+    background-color: #f8f8f8;
     align-items: flex-end;
     justify-content: space-between;
     border-radius: 5px;
+    margin-right: 10px;
     elevation: 5;
 `;
 export const ValueText = styled.Text`
