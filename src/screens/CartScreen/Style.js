@@ -17,12 +17,17 @@ export const DivLabel = styled.View`
     justify-content: center;
     align-items: center;
 `;
+export const DivBack = styled.View`
+    background-color: #fff;
+    border-radius: 15px;
+    elevation: 5;
+`;
 export const TextoHeader = styled.Text`
     font-size: 24px;
     color: #008B8B;
 `;
 export const Div = styled.View`
-    max-height:50%;
+    max-height:40%;
     border-radius: 15px;
     margin-top: 15px;
     margin-left: 20px;
@@ -44,16 +49,17 @@ export const Label = styled.Text`
 export const DivValues = styled.View`
     flex-direction: row;
     max-width: 100%;
-    background-color: #f8f8f8;
-    align-items: flex-end;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    margin-right: 10px;
-    elevation: 5;
+    padding-right: 10px;
+ 
 `;
 export const ValueText = styled.Text`
     font-size: 17px;
     font-weight: 800;
+    padding-bottom: 10px;
+    padding-left: 10px;
     color:#454545;
 `;
 export const DivImage = styled.View`

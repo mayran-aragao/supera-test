@@ -16,7 +16,8 @@ import {
     Label,
     ValueText,
     DivImage,
-    DivLabel
+    DivLabel,
+    DivBack
 } from './Style'
 import { checkForUpdateAsync } from 'expo-updates';
 
@@ -127,38 +128,40 @@ const ShopScreen = ({ route, navigation }) => {
                         />
                     </Div>
                     <DivCheckout>
-                    <DivLabel>
-                        <Material name="cash" size={15} color="#008B8B" />
-                            <Label>
-                                Subtotal
-                            </Label>
-                        </DivLabel>
-                        <DivValues>
-                            <ValueText>R$</ValueText>
-                            <ValueText>{subTotal}</ValueText>
-                        </DivValues>
-                        <DivLabel>
-                            <Material name="truck-fast-outline" size={15} color="#008B8B" />
-                            <Label>
-                                Frete
-                            </Label>
-                        </DivLabel>
-                        <DivValues>
-                            {shipping != "Grátis" &&
+                        <DivBack>
+                            <DivLabel>
+                                <Material name="cash" size={15} color="#008B8B" />
+                                <Label>
+                                    Subtotal
+                                </Label>
+                            </DivLabel>
+                            <DivValues>
                                 <ValueText>R$</ValueText>
-                            }
-                            <ValueText>{shipping}</ValueText>
-                        </DivValues>
-                        <DivLabel>
-                        <Material name="cash" size={15} color="#008B8B" />
-                            <Label>
-                                Total
-                            </Label>
-                        </DivLabel>
-                        <DivValues>
-                            <ValueText>R$</ValueText>
-                            <ValueText>{total}</ValueText>
-                        </DivValues>
+                                <ValueText>{subTotal}</ValueText>
+                            </DivValues>
+                            <DivLabel>
+                                <Material name="truck-fast-outline" size={15} color="#008B8B" />
+                                <Label>
+                                    Frete
+                                </Label>
+                            </DivLabel>
+                            <DivValues>
+                                {shipping != "Grátis" &&
+                                    <ValueText>R$</ValueText>
+                                }
+                                <ValueText>{shipping}</ValueText>
+                            </DivValues>
+                            <DivLabel>
+                                <Material name="cash" size={15} color="#008B8B" />
+                                <Label>
+                                    Total
+                                </Label>
+                            </DivLabel>
+                            <DivValues>
+                                <ValueText>R$</ValueText>
+                                <ValueText>{total}</ValueText>
+                            </DivValues>
+                        </DivBack>
                     </DivCheckout>
                     <Button
                         title={quantidade}

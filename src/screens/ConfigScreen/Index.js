@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button, Avatar } from 'react-native-elements';
 import { StatusBar } from 'react-native'
-import BuyComponent from '../../components/BuyComponent'
-import Material from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useStateValue } from '../../contexts/StateContext'
 import {
     Container,
@@ -11,11 +8,9 @@ import {
     DivHeader
 
 } from './Style'
-import { checkForUpdateAsync } from 'expo-updates';
 
 
-const ConfigScreen = ({ route, navigation }) => {
-    // const [name, setName] = useState(JSON.parse(context.user.name))
+const ConfigScreen = ({navigation }) => {
     const [context, dispatch] = useStateValue()
     
     const logout = () => {
@@ -25,11 +20,12 @@ const ConfigScreen = ({ route, navigation }) => {
             routes: [{ name: 'Entrace' }]
         })
     }
+    let name = context.user.name
     return (
         <Container>
             <StatusBar barStyle='dark-content' animated={true} backgroundColor="#f5f5f5" />
             <DivHeader>
-                <Avatar rounded size={150} title="US" containerStyle={{ backgroundColor: '#ccc' }} />
+                <Avatar rounded size={150} title={name.substring(0,2)} containerStyle={{ backgroundColor: '#ccc' }} />
             </DivHeader>
             <Div>
                 <Button title="Sair" type="outline" titleStyle={{color:'#ff0000'}} buttonStyle={{borderColor:"#ff0000"}} onPress={logout}/>
