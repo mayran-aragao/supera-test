@@ -137,7 +137,7 @@ const ShopScreen = ({ route, navigation }) => {
                             </DivLabel>
                             <DivValues>
                                 <ValueText>R$</ValueText>
-                                <ValueText>{subTotal}</ValueText>
+                                <ValueText>{parseFloat(subTotal).toFixed(2)}</ValueText>
                             </DivValues>
                             <DivLabel>
                                 <Material name="truck-fast-outline" size={15} color="#008B8B" />
@@ -159,7 +159,7 @@ const ShopScreen = ({ route, navigation }) => {
                             </DivLabel>
                             <DivValues>
                                 <ValueText>R$</ValueText>
-                                <ValueText>{total}</ValueText>
+                                <ValueText>{parseFloat(total).toFixed(2)}</ValueText>
                             </DivValues>
                         </DivBack>
                     </DivCheckout>

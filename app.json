@@ -1,27 +1,34 @@
 {
-    "expo": {
-        "name": "supera-test",
-        "slug": "supera-test",
-        "version": "1.0.0",
-        "assetBundlePatterns": [
-            "**/*"
-        ],
-        "packagerOpts": {
-            "config": "expo/metro-config",
-            "sourceExts": [
-                "expo.ts",
-                "expo.tsx",
-                "expo.js",
-                "expo.jsx",
-                "ts",
-                "tsx",
-                "js",
-                "jsx",
-                "json",
-                "wasm",
-                "svg"
-            ]
-        }
+  "expo": {
+    "name": "supera's Shop",
+    "slug": "Supera-teste",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "packagerOpts": {
+      "config": "expo/metro-config",
+      "sourceExts": [
+        "expo.ts",
+        "expo.tsx",
+        "expo.js",
+        "expo.jsx",
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "wasm",
+        "svg"
+      ]
     },
-    "name": "supera-test"
+    "android": {
+      "package": "host.exp.exponent"
+    }
+  },
+  "android": {
+    "package": "com.supera.SuperaShop",
+    "versionCode": 1
+  },
+  "name": "supera-test"
 }

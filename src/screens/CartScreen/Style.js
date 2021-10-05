@@ -16,6 +16,7 @@ export const DivLabel = styled.View`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-left: 10px;
 `;
 export const DivBack = styled.View`
     background-color: #fff;
