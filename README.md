@@ -40,6 +40,7 @@ Para conseguir utilizar o projeto, seja através do React Native CLI ou com uma 
 Ou
 
 Baixe o apk no link a seguir e instale no seu celular.
+https://drive.google.com/file/d/1FEyxZhnndI7lag_iLhw9UG3f22VKTaTP/view?usp=sharing
 
 ## Imagens
 <div>
